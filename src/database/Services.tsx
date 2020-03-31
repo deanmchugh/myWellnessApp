@@ -1,5 +1,5 @@
 import Realm from 'realm';
-import TaskModel from './TaskModel';
+import {TaskModel} from './TaskModel';
 
 const repository = new Realm({
   schema: [
@@ -9,9 +9,7 @@ const repository = new Realm({
       properties: {
         id: {type: 'string', indexed: true},
         title: 'string',
-        completed: 'bool',
-        createdAt: 'date',
-        updatedAt: 'date',
+        time: 'number',
       },
     },
   ],
@@ -36,25 +34,21 @@ export const TaskService = {
     }
 
     repository.write(() => {
-      task.updatedAt = new Date();
       repository.create('Task', task);
     });
   },
 
-  update: function(task: any, callback: any) {
+  update: function(task: any, callback: any, time: any) {
     if (!callback) {
       return;
     }
     repository.write(() => {
       callback();
-      task.updatedAt = new Date();
+      task.time = time;
     });
   },
 };
 
-TaskService.save(new TaskModel('Hello Koding'));
-TaskService.save(new TaskModel('Make a Todo App with React Native'));
-TaskService.save(new TaskModel('Check to complete a todo'));
-TaskService.save(new TaskModel('Long press, drag and drop a todo to sort'));
-TaskService.save(new TaskModel('Save data with Realm'));
-TaskService.save(new TaskModel('Sync data with Firebase'));
+TaskService.save(new TaskModel('Clean', 30));
+TaskService.save(new TaskModel('Meditate', 60));
+TaskService.save(new TaskModel('Exersize', 30));
