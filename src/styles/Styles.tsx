@@ -2,46 +2,30 @@ import {StyleSheet} from 'react-native';
 
 export const Styles = StyleSheet.create({
   containerCenter: {
-    flexDirection: 'column',
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  containerList: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-  },
-  flexList: {
-    flex: 1,
-    flexDirection: 'column',
-  },
-  task: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 150,
-    height: 150,
-    margin: 10,
     borderColor: 'red',
-    borderWidth: 2,
-    borderRadius: 100,
-  },
-  addTask: {
-    alignSelf: 'flex-end',
-  },
-  textInput: {
-    height: 40,
-    padding: 10,
-    margin: 10,
-    borderColor: 'gray',
     borderWidth: 1,
   },
-  button: {
-    backgroundColor: 'steelblue',
-    padding: 10,
-    margin: 10,
+  constainerRow: {
+    flexDirection: 'row',
+    height: 50,
   },
-  textLabel: {
-    color: 'white',
-    fontSize: 18,
+  rowItemSpace1: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: 'red',
+    borderWidth: 1,
+  },
+  rowItemSpace2: {
+    flex: 2,
+    justifyContent: 'center',
+    borderColor: 'red',
+    borderWidth: 1,
+  },
+  textCenter: {
+    textAlign: 'center',
   },
 });
