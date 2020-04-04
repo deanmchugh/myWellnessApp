@@ -16,16 +16,6 @@ const repository = new Realm({
 });
 
 export const TaskService = {
-  findAll: function(sortBy: any) {
-    if (!sortBy) {
-      sortBy = [
-        ['completed', false],
-        ['updatedAt', true],
-      ];
-    }
-    return repository.objects('Task').sorted(sortBy);
-  },
-
   save: function(task: any) {
     if (
       repository.objects('Task').filtered("title = '" + task.title + "'").length
